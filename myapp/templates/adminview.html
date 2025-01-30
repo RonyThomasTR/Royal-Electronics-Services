@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'image/20230521_212837.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <title>Royal Electronics Service</title>
+</head>
+<body style="background-color: rgb(208, 232, 232);">
+  <nav class="nav nav-pills flex-column flex-sm-row" style="background-color: rgb(240, 240, 234);box-shadow:-1px 1px 3px -1px rgb(12, 12, 12);"">
+    <Label class="flex-sm-fill text-sm-center">
+      <img src="{% static 'image/20230521_220042.png' %}" alt=""style="height: 90px;">
+    </Label>
+    <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Contact Us</label> <br>1565446456 </label>
+    <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Email</label> <br>genmolocaluse@gmail.com </label>
+    <label class="flex-sm-fill text-sm-center">
+      <a href="/add/" class="btn btn-primary" style="margin-top: 20px; width: 200px;">Add Staffs</a>
+    </label>
+  </nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#" style="font-weight: bolder; margin-left: 2%;">ROYAL <br>ELECTRONICS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#2">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#1">About Us</a>
+        </li>
+      </ul>
+        <a href="/vst/" class="btn btn-success me-2" style="width: 200px;">View Staffs</a>
+      
+        <a href="/log/" class="btn btn-danger me-2" style="width: 200px;">Logout</a>
+    </div>
+  </div>
+</nav>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'image/1688322965591.jpg'' %}" class="d-block w-100" alt="..." style="height: 525px;">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'image/Old computers.jpg' %}" class="d-block w-100" alt="..." style="height: 525px;">
+      <div class="carousel-caption d-none d-md-block" style="text-align: right; bottom: 150px;">
+        <h5 style="color: cornflowerblue;font-weight: bolder;font-size: xx-large;">OUR SERVICES & <br> BEST CARE 0F YOUR DEVICE</h5>
+        <p style="color: black;">Our repair technicians <br> have a wealth of experience repairing electronic devices</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'image/Want To Know About Accu-chek.jpg' %}" class="d-block w-100" alt="..." style="height: 525px;">
+    </div>
+  </div>
+</div>
+<div class="row" id="1">
+  <h3 style="text-align: center;margin-top: 75px;">WHY CHOOSE US</h3>
+  <p style="text-align: center;margin-bottom: 75px;">There are many valid reasons why you should choose us to take care of your valuable device</p>
+</div>
+<div class="row" style="place-content: center;">
+  <div class="card me-5 ms-5" style="width: 18rem;border: transparent;background-color:rgb(208, 232, 232);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16" style="align-self: center; color: cornflowerblue;">
+      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+    </svg>
+    <div class="card-body">
+      <h5>Over 20 years </h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card me-5 ms-5" style="width: 18rem;border: transparent;background-color:rgb(208, 232, 232);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16" style="align-self: center; color: cornflowerblue;">
+      <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z"/>
+    </svg>
+    <div class="card-body">
+      <h5>Friendly Services</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card me-5 ms-5" style="width: 18rem;border: transparent;background-color:rgb(208, 232, 232);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="90" height="80" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16" style="align-self: center; color: cornflowerblue;">
+      <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+    </svg>
+    <div class="card-body">
+      <h5>Expert Technicians</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+<div class="row" style="place-content: center;">
+  <div class="card" style="width: 18rem;border: transparent;background-color:rgb(208, 232, 232);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-wallet2 mt-3" viewBox="0 0 16 16" style="align-self: center; color: cornflowerblue;">
+      <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+    </svg>
+    <div class="card-body">
+      <h5>Affordable Diagnosis</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+<div class="row" id="2">
+  <h3 style="text-align: center;margin-top: 75px;">OUR SPECIALITIES</h3>
+  <p style="text-align: center;margin-bottom: 75px;">There are some special services are done by our service center</p>
+</div>
+<div class="row ms-5" style="place-content: center;">
+  <div class="card me-5 mb-4" style="width: 18rem;">
+    <img src="{% static 'image/H99a3a148995c45c1a59cd00b7d2aa89fb.jpg' %}"  class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5>Chip Level Servicing</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card me-5 mb-4" style="width: 18rem;">
+    <img src="{% static 'image/Electrical Services.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5>Home Service</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card me-5 mb-4" style="width: 18rem;">
+    <img src="{% static 'image/Liquid Crystal Displays Manufacturing By Xenarc Technologies in Irvine California.png' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5>Display Service</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card me-5 mb-4" style="width: 18rem;">
+    <img src="{% static 'image/gst-rate-slash.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5>All Type Electronic Equipments</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

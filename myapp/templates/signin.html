@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    {% block d %}
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+    {% endblock %}
+</head>
+<body  style="background-color: rgb(192, 192, 189);" >
+    <nav class="nav nav-pills flex-column flex-sm-row" style="background-color: rgb(240, 240, 234);box-shadow:-1px 1px 3px -1px rgb(12, 12, 12);">
+        <Label class="flex-sm-fill text-sm-center">
+          <img src="{% static 'image/20230521_220042.png' %}" alt=""style="height: 90px;">
+        </Label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Contact Us</label> <br>1565446456 </label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Email</label> <br>genmolocaluse@gmail.com </label>
+        <label class="flex-sm-fill text-sm-center">
+          <a href="/ushm/" class="btn btn-primary" style="margin-top: 20px; width: 200px;">Home</a>
+        </label>
+      </nav>
+    {% block c %}
+{% if messages %}
+{% for mssg in messages %}
+<p class="text-danger" style="display: flex;justify-content: center;">    
+{{ mssg }}
+{% endfor %}
+{% endif %}
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <h2>Sign Up</h2>    
+                    <div class="inputbox">
+                        <input type="text" name="usrname" required>
+                        <label for="usrname">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="tel" name="ph_no" required>
+                        <label for="ph_no">Phone No.</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" name="emil" required>
+                        <label for="emil">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="psword" required>
+                        <label for="psword">Create Password</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="psword_confirmation" required>
+                        <label for="psword_confirmation">Confirm Password</label>
+                    </div>
+                    {% if messages %}
+                    {% for mssg in messages %}
+                    <p class="text-danger">    
+                    {{ mssg }}
+                    {% endfor %}
+                    {% endif %}
+                    </p>
+                    <div >
+                        <input type="submit" value="sign up" class="btn" style=" width: 100%;border-radius: 20px;background-color: rgb(134, 134, 134);color: white;font-size: large;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

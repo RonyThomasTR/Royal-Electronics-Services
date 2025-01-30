@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    {% block b %}
+    <link rel="stylesheet" href="{% static 'css/appointments.css' %}">
+    <title>Appointment</title>
+    {% endblock %}
+</head>
+<body style="background-color: rgb(192, 192, 189);">
+    <nav class="nav nav-pills flex-column flex-sm-row" style="background-color: rgb(240, 240, 234);box-shadow:-1px 1px 3px -1px rgb(12, 12, 12);">
+        <Label class="flex-sm-fill text-sm-center">
+          <img src="{% static 'image/20230521_220042.png' %}" alt=""style="height: 90px;">
+        </Label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Contact Us</label> <br>1565446456 </label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Email</label> <br>genmolocaluse@gmail.com </label>
+        <label class="flex-sm-fill text-sm-center">
+          <a href="/hm/" class="btn btn-primary" style="margin-top: 20px;border-radius: 15px;width: 125px;">Home</a>
+        </label>
+    </nav>
+    {% block a %}
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <h2>MAKE AN APPOINTMENT</h2>
+                    <p>Enter the details of the device to be serviced</p>
+                    <div class="dropdown">
+                        <select name="device" id=""class="form-select" aria-label="Default select example" required>
+                            <option value=""selected disabled>Select device</option>
+                            <option value="TV">TV</option>
+                            <option value="Home Theatre">Home Theatre</option>
+                            <option value="Fridge">Fridge</option>
+                            <option value="Mobile">Mobile</option>
+                        </select>          
+                    </div>
+                    <div class="dropdown">
+                        <select name="brand" id=""class="form-select" aria-label="Default select example" required>
+                            <option value=""selected disabled>Select device brand</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Sony">Sony</option>
+                            <option value="LG">LG</option>
+                            <option value="MI">MI</option>
+                        </select>          
+                    </div>
+                    <label class="label-check" for="">Select an option</label>                   
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadio" value="Service from shop" id="flexRadioDefault2" checked required>
+                        <label class="form-check-label" for="flexRadioDefault2" >
+                            Service from shop
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadio" value="Home Service" id="flexRadioDefault1" required>
+                        <label class="form-check-label" for="flexRadioDefault1" >
+                          Home Service
+                        </label>
+                    </div>
+                    <label for="desc" class="description-label">Symptom</label>
+                    <div class="description">
+                        <textarea placeholder="description about your device" name="desc"></textarea>
+                    </div>
+                    <div class="file-choosing mb-5">
+                        <label for="filef">Upload an image of the device</label> <br>
+                        <input type="file" name="filef">
+                    </div>
+                    {% if messages %}
+                    {% for mssg in messages %}
+                    <p class="text-danger">
+                    {{ mssg }}
+                    {% endfor %}
+                    {% endif %}
+                    </p>
+                    <div class="sub">
+                        <input type="submit" value="submit" class="btn btn-success" style="width: 100%;border-radius: 20px;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

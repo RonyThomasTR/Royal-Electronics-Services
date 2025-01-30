@@ -1,0 +1,80 @@
+{% extends 'appointment.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    {% block b %}
+    <title>Details</title>
+    {% endblock %}
+</head>
+<body >
+    {% block a %}
+    <h2 style="text-align: center;">Appointment Details</h2>
+    <br>
+    <div class="container">
+        <table class="table table-info table-striped-columns">
+            <tr>
+                <th>Device</th>
+                <th>Brand</th>
+                <th>service type</th>
+                <th>Description</th>
+                <th>image</th>
+                <th>Appointment progress</th>
+            </tr>
+            {% for appoint in app %}
+            <tr>
+                <td>{{ appoint.device }}</td>
+                <td>{{ appoint.brand }}</td>
+                <td>{{ appoint.option }}</td>
+                <td>{{ appoint.description }}</td>
+                <td>{{ appoint.image }}</td>
+                <td>
+                    {% if appoint.option == "Service from shop" %}
+                        {% if appoint.appointment_progress == 0 %}
+                            <p style="font-weight: bold;">Pending.....</p>
+                        {% elif appoint.appointment_progress == 1 %}
+                            <p style="color: green;font-weight: bold;">Appointment Accepted</p>
+                        {% elif appoint.appointment_progress == 2 %}
+                            <a href="/userestm/{{ appoint.id }}/" class="btn btn-primary" style="width: 200px;">View  Estimate</a>
+                        {% elif appoint.appointment_progress == 3 %}
+                         <p style="color: green;font-weight: bold;">Estimate confirmed</p>
+                        {% elif appoint.appointment_progress == 4 %}
+                            <p style="color: orange;font-weight: bold;">Service in progress.....</p>
+                        {% elif appoint.appointment_progress == 5 %}
+                            <p style="color: green;font-weight: bold;">Serviced, You can collect your device from the shop</p>
+                        {% elif appoint.appointment_progress == 6 %}
+                            <p style="color: green;font-weight: bold;">Home Service accepted</p>
+                        {% elif appoint.appointment_progress == 9 %}
+                            <p style="color: red;font-weight: bold;">Appointment Rejected</p>
+                        {% elif appoint.appointment_progress == 10 %}
+                         <p style="color: red;font-weight: bold;">Estimate Rejected service stoped</p>
+                        {% endif %}
+                    {% else %}
+                        {% if appoint.appointment_progress == 0 %}
+                            <p style="font-weight: bold;">Pending.....</p>
+                        {% elif appoint.appointment_progress == 1 %}
+                            <p style="color: green;font-weight: bold;">Appointment for home service Accepted <br>Our staff will contact you</p>
+                        {% elif appoint.appointment_progress == 9 %}
+                            <p style="color: red;font-weight: bold;">Home service appointment Rejected</p>
+                        {% endif %}
+                    {% endif %}
+                </td>                
+            {% endfor %}
+            </tr>
+            {% if messages %}
+            {% for mssg in messages %}
+            <p class="text-danger" style="display: flex;justify-content: center;font-weight: bold;">    
+            {{ mssg }}
+            {% endfor %}
+            {% endif %}
+            
+        </table>
+        <a href="/bk/" class="btn btn-secondary" style="margin-top: 5px;width: 100%;border-radius: 20px;">Back</a>                   
+    </div>
+    {% endblock %}
+
+</body>
+</html>

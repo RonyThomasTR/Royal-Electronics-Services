@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    {% block g %}
+    <title>Details</title>
+    {% endblock %}
+</head>
+<body>
+    <nav class="nav nav-pills flex-column flex-sm-row" style="background-color: rgb(240, 240, 234);box-shadow:-1px 1px 3px -1px rgb(12, 12, 12);"">
+        <Label class="flex-sm-fill text-sm-center">
+          <img src="{% static 'image/20230521_220042.png' %}" alt=""style="height: 90px;">
+        </Label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Contact Us</label> <br>1565446456 </label>
+        <label for="" class="flex-sm-fill text-sm-center" style="margin-top: 15px;"><label for="" style="font-size: medium;font-weight: bold;">Email</label> <br>genmolocaluse@gmail.com </label>
+        <label class="flex-sm-fill text-sm-center">
+          <a href="/stm/" class="btn btn-primary" style="margin-top: 20px; width: 200px;">Home</a>
+        </label>
+    </nav>
+    {% block h %}
+    <h2 style="display: flex;justify-content: center;">Appointment Details</h2>
+    <br>
+    <div class="container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table class="table table-info table-striped-columns">
+                <tr>
+                    <th>Username</th>
+                    <th>Phone no.</th>
+                    <th>Email</th>
+                    <th>Device</th>
+                    <th>Brand</th>
+                    <th>Service type</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Accept/Reject</th>
+                </tr>
+                {% for user in usr %}
+                    {% for appoint in appo %}
+                        {% if user.id == appoint.uid %}
+                            <tr>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.email }}</td>  
+                                <td>{{ appoint.device }}</td>
+                                <td>{{ appoint.brand }}</td>
+                                <td>{{ appoint.option }}</td>
+                                <td>{{ appoint.description }}</td>
+                                <td>{{ appoint.file }}</td>
+                                <td>
+                                    {% if appoint.option == "Service from shop" %}
+                                        {% if appoint.appointment_progress == 0 %}
+                                            <a href="/acce/{{ appoint.id }}/" class="btn btn-success" style="width: 100px;">Accept</a>
+                                            <a href="/rejected/{{ appoint.id }}/" class="btn btn-danger" style="width: 100px;">Reject</a>
+                                        {% elif appoint.appointment_progress == 1 %}
+                                            <a href=" /estima/{{appoint.id}}/" class="btn btn-secondary">Make Estimation</a>
+                                        {% elif appoint.appointment_progress == 2 %}
+                                            <p style="color: orange;font-weight: bold;">Waiting for user to confirm estimate</p>
+                                        {% elif appoint.appointment_progress == 3 %}
+                                            <p style="color: green;font-weight: bold;">Estimate confirmed by user</p>
+                                            <a href="/onprogres/{{ appoint.id }}/" class="btn btn-success" style="width: 200px;">Service in progress</a>
+                                        {% elif appoint.appointment_progress == 4 %}
+                                            <a href="/onprogres/{{ appoint.id }}/" class="btn btn-success" style="width: 200px;">Serviced</a>
+                                        {% elif appoint.appointment_progress == 5 %}
+                                            <p style="color: green;font-weight: bold;">Serviced</p>
+                                        {% elif appoint.appointment_progress == 9 %}
+                                            <p style="color: red;font-weight: bold;">Appointment Rejected</p>
+                                        {% elif appoint.appointment_progress == 10 %}
+                                            <p style="color: red;font-weight: bold;">Estimate Rejected by customer</p>
+                                        {% endif %}
+                                    {% else %}
+                                        {% if appoint.appointment_progress == 0 %}
+                                            <a href="/acce/{{ appoint.id }}/" class="btn btn-success" style="width: 100px;">Accept</a>
+                                            <a href="/rejected/{{ appoint.id }}/" class="btn btn-danger" style="width: 100px;">Reject</a>
+                                        {% elif appoint.appointment_progress == 1  %}
+                                            <p style="color: green;font-weight: bold;">Home service appointment accepted</p>
+                                        {% elif appoint.appointment_progress == 9 %}
+                                            <p style="color: red;font-weight: bold;">Home service appointment Rejected</p>
+                                        {% endif %}
+                                    {% endif %}
+                                </td> 
+                            </tr>
+                        {% endif %}
+                    {% endfor %} 
+                {% endfor %}
+            </table>
+            <a href="//" class="btn btn-secondary" style="width: 100%;border-radius: 20px;">Back</a>
+        </form>
+    {% endblock %}
+</body>
+</html>
